@@ -24,68 +24,168 @@ ipo-web-app/
 │   ├── utils/             # Backend utilities
 │   └── package.json
 └── package.json            # Root package.json for monorepo
-```
 
-## Features
+### 🎯 Core Functionality
+- **📊 Real-time IPO Tracking** - Live subscription status and pricing
+- **📈 Investment Analytics** - Comprehensive portfolio performance tracking
+- **🔐 Secure Authentication** - JWT-based user authentication
+- **📱 Responsive Design** - Mobile-first, professional UI/UX
+- **🗄️ MongoDB Atlas** - Cloud database with 27 real IPOs
 
-- **JWT Authentication**: Secure token-based authentication
-- **Role-Based Access**: Admin, Manager, and Investor roles
-- **Modern UI**: Tailwind CSS with responsive design
-- **Protected Routes**: Route-level authentication
-- **API Integration**: Axios with interceptors for error handling
-- **TypeScript**: Full type safety throughout the application
+### 📋 IPO Data (Live from MongoDB Atlas)
+- **5 Live IPOs** - Currently open for investment
+- **18 Upcoming IPOs** - Scheduled to open soon
+- **3 Listed IPOs** - With performance tracking
+- **Real Companies** - Reliance Retail, Tata Digital, Dr. Reddy's, etc.
 
-## Getting Started
+### 🎨 Professional Interface
+- **Landing Page** - Modern design with real IPO data
+- **Investor Dashboard** - Tabbed navigation with analytics
+- **Admin Panel** - Complete IPO management system
+- **Live IPO Cards** - Rich, interactive IPO information
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React 18** - Modern, component-based UI
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Professional styling
+- **Lucide React** - Modern icons
+- **React Router** - SPA navigation
+
+### Backend
+- **Node.js** - Server-side runtime
+- **Express.js** - Web framework
+- **MongoDB** - NoSQL database
+- **Mongoose** - ODM for MongoDB
+- **JWT** - Authentication tokens
+
+### Database
+- **MongoDB Atlas** - Cloud-hosted database
+- **27 IPOs** - Real company data
+- **Real-time Updates** - Live subscription tracking
+
+## 🚀 Quick Start
 
 ### Prerequisites
-
-- Node.js (v16 or higher)
-- MongoDB (local or Atlas)
-- npm or yarn
+- Node.js 16+
+- MongoDB Atlas account
+- Git
 
 ### Installation
 
-1. Clone the repository
-2. Install dependencies for all packages:
+1. **Clone the repository**
    ```bash
-   npm run install:all
+   git clone https://github.com/SAMITH-07/ipo-web-app-project.git
+   cd ipo-web-app-project
    ```
 
-### Environment Setup
-
-Create a `.env` file in the `backend` directory:
-
-```env
-MONGODB_URI=mongodb://localhost:27017/ipo_db
-JWT_SECRET=your_jwt_secret_key_here
-PORT=5000
-```
-
-### Running the Application
-
-1. Start both frontend and backend:
+2. **Install dependencies**
    ```bash
-   npm run dev
-   ```
-
-2. Or start individually:
-   ```bash
-   # Frontend (React)
-   npm run dev:frontend
+   # Backend
+   cd backend
+   npm install
    
-   # Backend (Node.js)
-   npm run dev:backend
+   # Frontend
+   cd ../frontend
+   npm install
    ```
 
-The application will be available at:
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:5000
+3. **Setup environment variables**
+   ```bash
+   # backend/.env
+   MONGODB_URI=mongodb+srv://your_username:your_password@cluster.mongodb.net/ipo_db
+   JWT_SECRET=your_jwt_secret_key_here
+   PORT=5000
+   NODE_ENV=development
+   ```
 
-## API Endpoints
+4. **Seed the database**
+   ```bash
+   cd backend
+   node enhancedSeedIPOs.js
+   node addMoreIPOs.js
+   node createTestUserAtlas.js
+   ```
+
+5. **Start the application**
+   ```bash
+   # Backend (Terminal 1)
+   cd backend
+   npm start
+
+   # Frontend (Terminal 2)
+   cd frontend
+   npm start
+   ```
+
+6. **Access the application**
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:5000
+   - Live Demo: https://ipo-web-app-project.vercel.app
+
+## 📱 Usage
+
+### For Investors
+1. **Sign Up** - Create your investor account
+2. **Browse IPOs** - View live and upcoming IPOs
+3. **Apply for IPOs** - Invest in opportunities
+4. **Track Performance** - Monitor your investments
+5. **Analytics** - View detailed portfolio insights
+
+### For Admins
+1. **Login** - Access admin dashboard
+2. **Manage IPOs** - Add, edit, remove IPOs
+3. **Update Data** - Real-time subscription updates
+4. **View Statistics** - Platform analytics
+5. **User Management** - Manage investor accounts
+
+## 🌐 Deployment
+
+### Vercel (Recommended)
+1. **Install Vercel CLI**
+   ```bash
+   npm i -g vercel
+   ```
+
+2. **Deploy**
+   ```bash
+   vercel --prod
+   ```
+
+3. **Set Environment Variables**
+   - `MONGODB_URI`: Your MongoDB Atlas connection string
+   - `JWT_SECRET`: Your JWT secret key
+
+### Other Platforms
+- **Netlify** - Frontend hosting
+- **Railway** - Backend hosting
+- **Heroku** - Full-stack deployment
+
+📖 **Detailed Deployment Guide**: [DEPLOYMENT.md](./DEPLOYMENT.md)
+
+## 📊 Live IPO Data
+
+### Currently Open IPOs
+- **Reliance Retail Ltd** - ₹945-950, 7.8x subscription
+- **Tata Digital Services** - ₹1,250-1,280, 6.3x subscription
+- **Infosys BPM Ltd** - ₹1,350-1,375, 5.5x subscription
+- **Bajaj Finance Digital** - ₹1,865-1,890, 7.5x subscription
+- **Larsen & Toubro Infotech** - ₹875-895, 4.9x subscription
+
+### Upcoming IPOs
+- **Dr. Reddy's Laboratories** - ₹2,450-2,480
+- **Sun Pharmaceutical Industries** - ₹680-695
+- **Asian Paints Ltd** - ₹3,450-3,500
+- **Maruti Suzuki India Ltd** - ₹950-965
+- **And 14 more...**
+
+## 🔧 API Endpoints
 
 ### Authentication
-- `POST /api/auth/login` - User login
 - `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User login
+- `POST /api/auth/google` - Google OAuth
 - `GET /api/auth/profile` - Get user profile
 - `GET /api/auth/verify` - Verify token
 
