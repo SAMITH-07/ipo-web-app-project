@@ -3,15 +3,10 @@ import { Link } from 'react-router-dom';
 import { ipoService, IPO } from '../services/ipo';
 import { 
   TrendingUp, 
-  Shield, 
-  Users, 
   BarChart3, 
-  Star,
   ArrowRight,
   CheckCircle,
   Briefcase,
-  DollarSign,
-  Eye,
   Menu,
   X
 } from 'lucide-react';
@@ -48,12 +43,12 @@ const Landing = () => {
       description: "Track your total investment and returns with detailed performance metrics"
     },
     {
-      icon: <Shield className="w-6 h-6" />,
+      icon: <TrendingUp className="w-6 h-6" />,
       title: "Secure Platform",
       description: "Bank-level security with JWT authentication and encrypted data transmission"
     },
     {
-      icon: <Users className="w-6 h-6" />,
+      icon: <Briefcase className="w-6 h-6" />,
       title: "Expert Management",
       description: "Admin panel for complete IPO management with real-time statistics"
     }
@@ -452,19 +447,19 @@ const Landing = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">About Us</a></li>
-                <li><a href="#" className="hover:text-white">Contact</a></li>
-                <li><a href="#" className="hover:text-white">Careers</a></li>
-                <li><a href="#" className="hover:text-white">Blog</a></li>
+                <li><a href="#about" className="hover:text-white">About Us</a></li>
+                <li><a href="#contact" className="hover:text-white">Contact</a></li>
+                <li><a href="#careers" className="hover:text-white">Careers</a></li>
+                <li><a href="#blog" className="hover:text-white">Blog</a></li>
               </ul>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Legal</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-white">Risk Disclosure</a></li>
-                <li><a href="#" className="hover:text-white">FAQ</a></li>
+                <li><a href="#privacy" className="hover:text-white">Privacy Policy</a></li>
+                <li><a href="#terms" className="hover:text-white">Terms of Service</a></li>
+                <li><a href="#risk" className="hover:text-white">Risk Disclosure</a></li>
+                <li><a href="#faq" className="hover:text-white">FAQ</a></li>
               </ul>
             </div>
           </div>

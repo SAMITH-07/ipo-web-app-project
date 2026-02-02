@@ -1,9 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Landing from './pages/Landing';
-import Dashboard from './pages/Dashboard';
 import InvestorDashboard from './pages/InvestorDashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminIPOManagement from './pages/AdminIPOManagement';
