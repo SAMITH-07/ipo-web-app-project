@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { authService } from '../services/auth';
 import { Eye, EyeOff, AlertCircle, UserPlus, Shield } from 'lucide-react';
-import GoogleOAuth from '../components/GoogleOAuth';
+// import GoogleOAuth from '../components/GoogleOAuth'; // Temporarily disabled
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -209,10 +209,13 @@ const Signup = () => {
           </div>
 
           <div className="mt-6">
-            <GoogleOAuth 
+            {/* <GoogleOAuth 
               onSuccess={handleGoogleSuccess}
               onError={handleGoogleError}
-            />
+            /> */}
+            <div className="text-center text-gray-500 text-sm">
+              Google OAuth temporarily disabled
+            </div>
           </div>
           
           <div className="mt-3 text-center">
