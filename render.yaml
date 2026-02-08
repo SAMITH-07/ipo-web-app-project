@@ -1,0 +1,26 @@
+services:
+  # Backend API Service
+  - type: web
+    name: ipo-web-app-backend
+    env: node
+    repo: https://github.com/SAMITH-07/ipo-web-app-project.git
+    rootDir: backend
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+    healthCheckPath: /api/health
+    autoDeploy: true
+
+databases:
+  # MongoDB Atlas (External)
+  - name: ipo-mongodb
+    databaseName: ipo_db
+    user: ipo_user
