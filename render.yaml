@@ -16,6 +16,8 @@ services:
         sync: false
       - key: JWT_SECRET
         sync: false
+      - key: FRONTEND_URL
+        value: https://ipo-web-app-project.vercel.app
     healthCheckPath: /api/health
     autoDeploy: true
 
