@@ -39,11 +39,7 @@ app.use('/api/ipos', require('./routes/ipos'));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/upload', require('./routes/upload'));
 app.use('/api/watchlist', require('./routes/watchlist'));
-
-// Health check
-app.get('/api/health', (req, res) => {
-    res.json({ status: 'Backend API is running ✅', timestamp: new Date() });
-});
+app.use('/api/health', require('./routes/health'));
 
 // Root endpoint
 app.get('/', (req, res) => {

@@ -1,0 +1,26 @@
+services:
+  # Backend API Service
+  - type: web
+    name: ipo-backend
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "node server.js"
+    autoDeploy: false
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+    # Add your environment variables here in Render dashboard
+    # - key: MONGODB_URI
+    #   value: mongodb+srv://username:password@cluster.mongodb.net/ipo_db
+    # - key: JWT_SECRET
+    #   value: your_super_secret_jwt_key_here_make_it_long_and_secure
+    # - key: GOOGLE_CLIENT_ID
+    #   value: your_google_client_id_here
+    # - key: GOOGLE_CLIENT_SECRET
+    #   value: your_google_client_secret_here
+    # - key: CORS_ORIGIN
+    #   value: https://ipo-web-app-project.vercel.app
