@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import axios from 'axios';
-import './App.css';
-
-// Import pages
+import Navbar from './components/Navbar';
+import PublicHome from './pages/PublicHome';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import UserDashboard from './pages/UserDashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import IPODetail from './pages/IPODetail';
-import Watchlist from './pages/Watchlist';
 import Analytics from './pages/Analytics';
+import Watchlist from './pages/Watchlist';
 import CompareIPOs from './pages/CompareIPOs';
 import WatchlistButton from './components/WatchlistButton';
 import MobileNavigation from './components/MobileNavigation';
-import Navbar from './components/Navbar';
 import { Link } from 'react-router-dom';
 
 // Public home page component
@@ -27,21 +25,6 @@ const PublicHome = () => {
     fetchPublicIPOs();
     fetchUserData();
   }, []);
-
-  const fetchUserData = async () => {
-    try {
-      const userData = JSON.parse(localStorage.getItem('user') || '{}');
-      setUser(userData);
-    } catch (err) {
-      console.error('Error fetching user data:', err);
-    }
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    setUser(null);
-  };
 
   const fetchPublicIPOs = async () => {
     try {
