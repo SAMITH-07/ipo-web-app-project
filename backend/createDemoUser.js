@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const User = require('./models/User');
 require('dotenv').config();
 
-async function createAdmin() {
-    const email = 'admin@ipo.com';
-    const password = 'admin123';
-    const name = 'Administrator';
+async function createDemoUser() {
+    const email = 'user@ipo.com';
+    const password = 'user123';
+    const name = 'Demo User';
 
     try {
         const mongoUri = 'mongodb://localhost:27017/ipo_db';
@@ -13,18 +13,18 @@ async function createAdmin() {
         
         let user = await User.findOne({ email });
         if (user) {
-            console.log('Admin user already exists.');
+            console.log('Demo user already exists.');
             process.exit(0);
         }
 
-        user = new User({ name, email, password, role: 'admin' });
+        user = new User({ name, email, password, role: 'investor' });
         await user.save();
-        console.log('Admin user created:', email);
+        console.log('Demo user created:', email);
         process.exit(0);
     } catch (err) {
-        console.error('Error creating admin:', err);
+        console.error('Error creating demo user:', err);
         process.exit(1);
     }
 }
 
-createAdmin();
+createDemoUser();

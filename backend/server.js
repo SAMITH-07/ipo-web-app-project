@@ -1,7 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
+
+// Fallback for Windows PowerShell issues
+if (!process.env.JWT_SECRET) {
+  process.env.JWT_SECRET = 'supersecretjwtkeyforipowebapp2024makeitlongandsecureenoughforproduction';
+}
+
+console.log('JWT_SECRET loaded:', process.env.JWT_SECRET ? '✅' : '❌');
 
 const app = express();
 
@@ -10,8 +18,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Serve static files
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI)
+const mongoUri = 'mongodb://localhost:27017/ipo_db';
+mongoose.connect(mongoUri)
     .then(() => {
         console.log('✅ MongoDB connected successfully');
         console.log('📊 Database: ipo_db');
@@ -25,6 +37,8 @@ mongoose.connect(process.env.MONGODB_URI)
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/ipos', require('./routes/ipos'));
 app.use('/api/users', require('./routes/users'));
+app.use('/api/upload', require('./routes/upload'));
+app.use('/api/watchlist', require('./routes/watchlist'));
 
 // Health check
 app.get('/api/health', (req, res) => {

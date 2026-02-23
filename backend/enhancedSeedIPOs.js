@@ -4,7 +4,8 @@ require('dotenv').config();
 
 async function seedEnhancedIPOs() {
   try {
-    await mongoose.connect(process.env.MONGODB_URI);
+    const mongoUri = 'mongodb://localhost:27017/ipo_db';
+    await mongoose.connect(mongoUri);
     console.log('Connected to MongoDB');
 
     // Clear existing IPOs

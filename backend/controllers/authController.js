@@ -1,10 +1,18 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const { OAuth2Client } = require('google-auth-library');
 
 const generateToken = (userId, role) => {
   return jwt.sign({ id: userId, role }, process.env.JWT_SECRET, { expiresIn: '7d' });
 };
+
+// Initialize Google OAuth client
+const googleClient = new OAuth2Client(
+  process.env.GOOGLE_CLIENT_ID,
+  process.env.GOOGLE_CLIENT_SECRET,
+  'postmessage'
+);
 
 const authController = {
   async login(req, res) {
@@ -89,27 +97,26 @@ const authController = {
         return res.status(400).json({ message: 'Google ID token is required' });
       }
 
-      // For demo purposes, we'll decode the token without verification
-      // In production, you would verify the Google ID token using Google's libraries
-      // const { OAuth2Client } = require('google-auth-library');
-      // const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
-      // const ticket = await client.verifyIdToken({
-      //   idToken: token,
-      //   audience: process.env.GOOGLE_CLIENT_ID,
-      // });
-      // const payload = ticket.getPayload();
+      // Verify the Google ID token
+      const ticket = await googleClient.verifyIdToken({
+        idToken: token,
+        audience: process.env.GOOGLE_CLIENT_ID,
+      });
 
-      // Mock Google user data (in production, get from verified token)
+      const payload = ticket.getPayload();
+      
+      // Extract user information from Google token
       const googleUser = {
-        email: 'googleuser@gmail.com', // payload.email
-        name: 'Google User', // payload.name
-        googleId: 'google-user-id', // payload.sub
-        picture: 'https://lh3.googleusercontent.com/a/default-user' // payload.picture
+        email: payload.email,
+        name: payload.name,
+        picture: payload.picture,
+        googleId: payload.sub
       };
 
       let user = await User.findOne({ email: googleUser.email });
       
       if (!user) {
+        // Create new user if doesn't exist
         user = new User({
           name: googleUser.name,
           email: googleUser.email,
@@ -140,6 +147,9 @@ const authController = {
       });
     } catch (error) {
       console.error('Google sign-in error:', error);
+      if (error.message.includes('invalid_token') || error.message.includes('invalid_signature')) {
+        return res.status(400).json({ message: 'Invalid Google token' });
+      }
       res.status(500).json({ message: 'Google sign-in failed' });
     }
   },
