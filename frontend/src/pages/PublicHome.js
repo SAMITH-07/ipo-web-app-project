@@ -107,7 +107,7 @@ const PublicHome = () => {
                 <div className="text-white text-sm font-bold">T</div>
               </div>
               <span className="text-xs font-semibold px-2 py-1 rounded" style={{color: '#0B3C5D', backgroundColor: '#EBF5FF'}}>LIVE</span>
-              <h3 className="text-2xl font-bold mt-2" style={{color: '#1C1C1C'}}>156</h3>
+              <h3 className="text-2xl font-bold mt-2" style={{color: '#1C1C1C'}}>24</h3>
               <p className="text-sm" style={{color: '#6B7280'}}>Total IPOs This Year</p>
             </div>
             
@@ -116,7 +116,7 @@ const PublicHome = () => {
                 <div className="text-white text-sm font-bold">O</div>
               </div>
               <span className="text-xs font-semibold px-2 py-1 rounded" style={{color: '#2ECC71', backgroundColor: '#F0FDF4'}}>OPEN</span>
-              <h3 className="text-2xl font-bold mt-2" style={{color: '#1C1C1C'}}>12</h3>
+              <h3 className="text-2xl font-bold mt-2" style={{color: '#1C1C1C'}}>3</h3>
               <p className="text-sm" style={{color: '#6B7280'}}>Currently Open</p>
             </div>
             
@@ -125,7 +125,7 @@ const PublicHome = () => {
                 <div className="text-white text-sm font-bold">U</div>
               </div>
               <span className="text-xs font-semibold px-2 py-1 rounded" style={{color: '#1F4E79', backgroundColor: '#EFF6FF'}}>UPCOMING</span>
-              <h3 className="text-2xl font-bold mt-2" style={{color: '#1C1C1C'}}>8</h3>
+              <h3 className="text-2xl font-bold mt-2" style={{color: '#1C1C1C'}}>5</h3>
               <p className="text-sm" style={{color: '#6B7280'}}>Upcoming IPOs</p>
             </div>
             
@@ -134,8 +134,8 @@ const PublicHome = () => {
                 <div className="text-white text-sm font-bold">H</div>
               </div>
               <span className="text-xs font-semibold px-2 py-1 rounded" style={{color: '#F59E0B', backgroundColor: '#FEF3C7'}}>HOT</span>
-              <h3 className="text-2xl font-bold mt-2" style={{color: '#1C1C1C'}}>3</h3>
-              <p className="text-sm" style={{color: '#6B7280'}}>Hot IPOs This Week</p>
+              <h3 className="text-2xl font-bold mt-2" style={{color: '#1C1C1C'}}>1</h3>
+              <p className="text-sm" style={{color: '#6B7280'}}>Hot IPO This Week</p>
             </div>
           </div>
         </div>
@@ -225,15 +225,15 @@ const PublicHome = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
             <div className="text-center">
-              <div className="text-3xl font-bold mb-2" style={{color: '#2ECC71'}}>50K+</div>
+              <div className="text-3xl font-bold mb-2" style={{color: '#2ECC71'}}>500+</div>
               <div style={{color: '#E5E7EB'}}>Active Investors</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold mb-2" style={{color: '#2ECC71'}}>₹500Cr+</div>
+              <div className="text-3xl font-bold mb-2" style={{color: '#2ECC71'}}>₹2.5Cr+</div>
               <div style={{color: '#E5E7EB'}}>Investments Processed</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold mb-2" style={{color: '#2ECC71'}}>98%</div>
+              <div className="text-3xl font-bold mb-2" style={{color: '#2ECC71'}}>95%</div>
               <div style={{color: '#E5E7EB'}}>Customer Satisfaction</div>
             </div>
           </div>
